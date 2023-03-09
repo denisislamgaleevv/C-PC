@@ -8,7 +8,7 @@ export class Reviews extends Component {
   state = {
       scrollOn: true,
       showReviewsForm: false,
-      reviewsArr: JSON.parse(localStorage.getItem('reviewsArr')), 
+      reviewsArr: [], 
        
   }; 
   addNewReview = (treview) =>{
@@ -70,9 +70,7 @@ export class Reviews extends Component {
   
 render( ){
    
-  if (this.state.reviewsArr.length === 0)
-    return <h2 className = 'zagruzka'>Загрузка данных...</h2>
-  else
+  
   return (
       
       <>  
