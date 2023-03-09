@@ -10,6 +10,7 @@ export const Header = () =>{
             <div className='headerElemWrapper'>
          <a className='headerElem' href = '/main'>Конфигуратор</a>
          <a className='headerElem' href = '/team'>Команда</a>
+         <a className='headerElem' href = '/reviews'>Отзывы</a>
         </div> 
         </div>
     )

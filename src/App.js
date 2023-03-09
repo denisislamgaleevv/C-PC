@@ -3,6 +3,7 @@ import './App.css';
 import {Main} from './components/Main/Main'
 import {Header} from './components/Header/Header'
 import {Team} from './components/Team/Team'
+import {Reviews} from './components/Reviews/Reviews'
 import {Routes, Route, BrowserRouter} from 'react-router-dom'
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>  
           <Route exact path ='/main' element={<Main/> }/> 
           <Route path ='/team' element={  <Team/> }/> 
+          <Route path ='/reviews' element={  <Reviews/> }/> 
          
           </Routes>
           </BrowserRouter>
