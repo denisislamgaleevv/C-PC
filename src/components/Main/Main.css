@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .left {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 200px;
+    margin-right: 20px;
+  }
+  
+  .button {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #3e8e41;
+  }
+  
+  .right {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: calc(100% - 220px);
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 300px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .image {
+    max-width: 100%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 40%;
+    height: 40%;
+  }
+  
+  
+  
+  .purchase-button {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #008CBA;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .purchase-button:hover {
+    background-color: #007AA3;
+  }
+  
+  .cart {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cart h2 {
+    margin-top: 0;
+  }
+  
+  .cart-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cart-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .cart-list li:last-child {
+    border-bottom: none;
+  }
+  
+  .total {
+    text-align: right;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+.cross{
+  color: grey;
+  cursor: pointer;
+  font-size: 16px;
+}
+.cross:hover{
+  color: black;
+}

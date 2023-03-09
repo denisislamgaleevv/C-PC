@@ -1,0 +1,21 @@
+.teamWrapper{
+    display: flex;
+     
+    text-align: center;
+    justify-content: center;
+}
+.teamElemWrapper{
+    
+    
+    margin-top: 2%;
+    width: 40%;
+    text-align: center;
+    
+}
+.teamImg{
+    width: 70%;
+    height:  70%;
+}
+.developerDesc{
+    color: rgb(107, 34, 34);
+}
