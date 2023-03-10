@@ -25,7 +25,8 @@ export const comps = {
         "boostClock": "5.3 GHz",
         "socket": "LGA1200",
       },
-    },
+    } 
+    
     // more processors...
   ],
   "video_cards": [

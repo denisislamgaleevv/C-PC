@@ -1,6 +1,8 @@
 import './Main.css'
 import {React, useState, useEffect, useCallback } from 'react'
 import {comps} from './comps.js'
+import InfoIcon from '@mui/icons-material/Info';
+import { DialogWindow } from './DialogWindow/DialogWindow';
 export const Main = () =>{
     
     const [processorsV, setProcessorsV] = useState(false)
@@ -13,12 +15,18 @@ export const Main = () =>{
     const [cartArr, setCartArr] = useState([])
     const [pricesArr, setPricesArr] = useState([])
     const [hardwareArr, setHardwareArr] = useState([])
-    const [sum, setSum] = useState(0)
-     
+    const [  infoVisibility,  setInfoVisibility] = useState(false)
+     const [currentElem, setCurrentElem] = useState({})
     useEffect(() =>{        //рендерится слишком много раз, надо переделать
       setHardwareArr(comps) 
     }, [hardwareArr]) 
-    
+    useEffect(() =>{
+      window.addEventListener('keyup', (e) => {
+        if (e.key === 'Escape'  ){
+          setInfoVisibility(false)
+        }
+    })
+    })
     const b1Click = () =>{
         setProcessorsV(!processorsV)//
         setMotherBoardsV(false)
@@ -115,13 +123,17 @@ export const Main = () =>{
         temp.push({ 
           name :  '',
           price : 0, 
-          photo : ''
+          photo : '',
+          description: '', 
+          characteristics: []
         })
       }
        for (let i = 0; i< hardwareArr.processors.length; i++){
         temp[i].name =  hardwareArr.processors[i].name; 
         temp[i].price =  hardwareArr.processors[i].price  
         temp[i].photo =  hardwareArr.processors[i].photo
+        temp[i].description =  hardwareArr.processors[i].description
+        temp[i].characteristics =  hardwareArr.processors[i].characteristics
       } 
       
       return(temp)
@@ -139,6 +151,8 @@ export const Main = () =>{
         temp[i].name =  hardwareArr.motherboards[i].name; 
         temp[i].price =  hardwareArr.motherboards[i].price  
         temp[i].photo =  hardwareArr.motherboards[i].photo
+        temp[i].description =  hardwareArr.motherboards[i].description
+        temp[i].characteristics =  hardwareArr.motherboards[i].characteristics
       } 
       
       return(temp)
@@ -156,6 +170,8 @@ export const Main = () =>{
         temp[i].name =  hardwareArr.RAM[i].name; 
         temp[i].price =  hardwareArr.RAM[i].price  
         temp[i].photo =  hardwareArr.RAM[i].photo
+        temp[i].description =  hardwareArr.RAM[i].description
+        temp[i].characteristics =  hardwareArr.RAM[i].characteristics
       } 
       
       return(temp)
@@ -173,6 +189,8 @@ export const Main = () =>{
         temp[i].name =  hardwareArr.video_cards[i].name; 
         temp[i].price =  hardwareArr.video_cards[i].price  
         temp[i].photo =  hardwareArr.video_cards[i].photo
+        temp[i].description =  hardwareArr.video_cards[i].description
+        temp[i].characteristics =  hardwareArr.video_cards[i].characteristics
       } 
       
       return(temp)
@@ -190,6 +208,8 @@ export const Main = () =>{
         temp[i].name =  hardwareArr.SSD[i].name; 
         temp[i].price =  hardwareArr.SSD[i].price  
         temp[i].photo =  hardwareArr.SSD[i].photo
+        temp[i].description =  hardwareArr.SSD[i].description
+        temp[i].characteristics =  hardwareArr.SSD[i].characteristics
       } 
       
       return(temp)
@@ -207,6 +227,8 @@ export const Main = () =>{
         temp[i].name =  hardwareArr.HDD[i].name; 
         temp[i].price =  hardwareArr.HDD[i].price  
         temp[i].photo =  hardwareArr.HDD[i].photo
+        temp[i].description =  hardwareArr.HDD[i].description
+        temp[i].characteristics =  hardwareArr.HDD[i].characteristics
       } 
       
       return(temp)
@@ -224,6 +246,8 @@ export const Main = () =>{
         temp[i].name =  hardwareArr.power_units[i].name; 
         temp[i].price =  hardwareArr.power_units[i].price  
         temp[i].photo =  hardwareArr.power_units[i].photo
+        temp[i].description =  hardwareArr.power_units[i].description
+        temp[i].characteristics =  hardwareArr.power_units[i].characteristics
       } 
       
       return(temp)
@@ -237,6 +261,14 @@ export const Main = () =>{
         }
         return(sum)
     }
+    }
+
+    const handleInfoIconClick = (elem)=>{
+      setInfoVisibility(true)
+      setCurrentElem(elem) 
+    }
+    const hideDialogWindow = ()=>{
+      setInfoVisibility(false)
     }
     return(
         <>
@@ -256,9 +288,24 @@ export const Main = () =>{
 		</div>
 
 		<div class="right">
-            {processorsV ?   
+    {  infoVisibility?  
+                <DialogWindow  
+                 text = {currentElem.name} 
+                 photo ={currentElem.photo} 
+                 price = {currentElem.price}
+                  description = {currentElem.description}
+                  characteristics= {currentElem.characteristics}
+                  hideDialogWindow = {hideDialogWindow}
+                   /> : <></>
+      }
+              {processorsV ?   
+              
            getProcessors().map((obj) =>    
+           
            <div  class="content hide">
+              
+            <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
+           
            <img src={obj.photo}   class="image"/>
         {
            <> 
@@ -266,10 +313,15 @@ export const Main = () =>{
            <p>{obj.price}$ </p>
            </>  
         }
+        
  <button class="purchase-button" onClick={()=>addToCart(obj.name, obj.price)}>Добавить в корзину</button>
-			</div> ) : <></>} 
+ 
+ 
+			</div> ) : <></>}  
+     
             {motherBoardsV ?      getMotherboards().map((obj) =>    
             <div  class="content hide">
+                  <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
             <img src={obj.photo}   class="image"/>
         {
           	 <> 
@@ -281,6 +333,7 @@ export const Main = () =>{
 			</div>)  : <></>} 
             {RAMV ? 	   getRAM().map((obj) =>    
             <div  class="content hide">
+                 <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
 				<img src={obj.photo}   class="image"/>
         {
           	 <> 
@@ -292,6 +345,7 @@ export const Main = () =>{
 			</div>): <></>} 
             {videoCardsV ?    getVideoCards().map((obj) =>    
            <div  class="content hide">
+               <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
            <img src={obj.photo}   class="image"/>
         {
           	 <> 
@@ -303,6 +357,7 @@ export const Main = () =>{
       </div>): <></>} 
             {SSDV ?    getSSD().map((obj) =>    
       <div  class="content hide">
+            <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
       <img src={obj.photo}   class="image"/>
         {
           	<> 
@@ -314,6 +369,7 @@ export const Main = () =>{
       </div>): <></>} 
             {HDDV ?      getHDD().map((obj) =>    
              <div  class="content hide">
+                   <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
              <img src={obj.photo}   class="image"/>
         {
           	<> 
@@ -325,6 +381,7 @@ export const Main = () =>{
       </div>): <></>} 
             {powerUnitsV ?    getPowerUnits().map((obj) =>    
             <div  class="content hide">
+                 <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
             <img src={obj.photo}   class="image"/>
         {
           <> 
@@ -333,19 +390,7 @@ export const Main = () =>{
           </>  
         }
     <button class="purchase-button" onClick={()=>addToCart(obj.name, obj.price)}>Добавить в корзину</button>
-      </div>): <></>} 
-			 
-
-		 
-
-			  
-
-			 
- 
-  
-    
-  
-      
+      </div>): <></>}   
     </div>
   </div>
   

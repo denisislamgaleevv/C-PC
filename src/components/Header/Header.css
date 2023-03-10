@@ -1,34 +1,42 @@
-.headerWrapper{
- 
-    text-align: center;
-    display: inline-block;
-    width: 100%;
-    background-color:  rgb(181, 181, 181);
-    font-size: 160%;
-    height: 40px;
-}
-.headerElem{
-    margin-top: 2%;
-    margin-left: 5%;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-}
-.headerElem:hover{
-    color: green;
-}
-.headerLogo{
-    margin-left: 2%;
-    cursor: pointer;
-}
-.headerLogoWrapper{
+.headerWrapper {
+    background-color: #212121;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 4px solid #4caf50;
     
-    top: 50px;
-    margin-left: 2%;
-    display: inline;
-    width: 50%;
-}
-.headerElemWrapper{
-    display: inline;
-    width: 50%;
-}
+  }
+  
+  .headerLogoWrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .headerLogo {
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .headerElemWrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  .headerElem {
+    margin-left: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.2s ease-in-out;
+    padding: 10px;
+  }
+  
+  .headerElem:hover {
+    color: #aaa;
+    border-bottom-color: #4caf50;
+  }
