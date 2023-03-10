@@ -41,7 +41,7 @@ export const DialogWindow = ({ hideDialogWindow, text, photo, price, description
              <div className = "imageDiv">  <img   class="imageDialog" src = {photo} /></div>
              <div className = "descDiv" > <p className='desc'>  {str} </p>  </div>
              </div>
-             <h3  >{description} </h3>
+             <h3 className = "desc2Div" >{description} </h3>
               
            
 

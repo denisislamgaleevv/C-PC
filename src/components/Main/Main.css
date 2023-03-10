@@ -289,10 +289,136 @@ body {
 .show {
   display: block;
 }
-.InfoIcon{
-  color: #4CAF50;
+
+/* Add keyframe animation for cart item removal */
+@keyframes remove-item {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+
+/* Darken background color and text color */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  color: #fff;
+}
+
+/* Add transition for background color */
+.cartWrapper {
+  background-color: #333;
+  transition: background-color 0.5s ease-in-out;
+}
+
+/* Add animations for cart item removal */
+.cartItemRemove {
+  font-size: 16px;
+  color: grey;
   cursor: pointer;
-  position:relative;
- 
-  left: 46%;
+  transition: color 0.2s ease-in-out;
+  animation: remove-item 0.5s ease-in-out;
+}
+
+.cartItemRemove:hover {
+  color: #fff;
+}
+
+/* Darken cart header and border color */
+.cartHeader {
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  border-bottom: 4px solid #4caf50;
+}
+
+/* Add transition for border color */
+.cartHeader {
+  transition: border-color 0.5s ease-in-out;
+}
+
+/* Darken button and background color on hover */
+.button:hover {
+  background-color: #357a38;
+}
+
+.purchase-button:hover {
+  background-color: #006a8e;
+}
+
+/* Add animations for cart item removal */
+.cartItemRemove {
+  font-size: 16px;
+  color: grey;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  animation: remove-item 0.5s ease-in-out;
+}
+
+.cartItemRemove:hover {
+  color: #fff;
+}
+
+/* Add animations for adding items to cart */
+.addToCartButton {
+  position: relative;
+  overflow: hidden;
+}
+
+.addToCartButton:after {
+  content: "\f07a";
+  font-family: "FontAwesome";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.addToCartButton.added:after {
+  opacity: 1;
+}
+
+/* Add transition for cart background color */
+.cart {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #444;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.5s ease-in-out;
+}
+
+/* Darken content background color */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 300px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Add transition for content background color */
+.content {
+  transition: background-color 0.5s ease-in-out;
+}
+.InfoIcon{
+  position: relative;
+  left: 45%
 }

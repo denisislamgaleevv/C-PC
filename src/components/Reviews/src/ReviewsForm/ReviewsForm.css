@@ -16,7 +16,7 @@
 .mainReviewsForm{
     border-radius: 5px;
     z-index: 3;
-    background-color:  rgb(254, 251, 247);
+    background-color:  rgba(0, 0, 0 );
     font-family: 'Alegreya SC', serif;
     width: 70%;
     height: 85%;

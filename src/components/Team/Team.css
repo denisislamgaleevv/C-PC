@@ -1,21 +1,38 @@
-.teamWrapper{
+.teamWrapper {
     display: flex;
-     
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #333;
+    color: #fff;
+    padding: 50px;
+  }
+  
+  .teamElemWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .teamImg {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+  }
+  
+  .developer {
+    font-size: 24px;
+    margin-top: 20px;
+  }
+  
+  .developerDesc {
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 10px;
+  }
+  
+  .developerText {
+    font-size: 14px;
+    margin-top: 20px;
     text-align: center;
-    justify-content: center;
-}
-.teamElemWrapper{
-    
-    
-    margin-top: 2%;
-    width: 40%;
-    text-align: center;
-    
-}
-.teamImg{
-    width: 70%;
-    height:  70%;
-}
-.developerDesc{
-    color: rgb(107, 34, 34);
-}
+  }
