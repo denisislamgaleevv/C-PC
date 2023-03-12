@@ -3,7 +3,7 @@ import './ReviewsForm.css';
 import {React, Component} from 'react';
 import CloseIcon from '@mui/icons-material/Close'; 
 import StarIcon from '@mui/icons-material/Star';
- 
+import axios from 'axios'
 import moment from 'moment';
 
 export class ReviewsForm extends Component  {
@@ -112,7 +112,7 @@ render(){
              
              
             <div className='btnLearnMoreWrapper'>  
-            <button className='btn'   onClick={ this.createReview} >Оставить отзыв</button>
+            <button className='button'   onClick={ this.createReview} >Оставить отзыв</button>
             </div>
           </div>
       </div>

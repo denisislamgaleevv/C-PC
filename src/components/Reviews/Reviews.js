@@ -1,6 +1,6 @@
 import './Reviews.css';
 import React, { useState , Component } from 'react';
- 
+import axios from 'axios';
 import {ReviewsForm} from './src/ReviewsForm/ReviewsForm';
 import {Review} from './src/Review/Review'
 
@@ -8,11 +8,15 @@ export class Reviews extends Component {
   state = {
       scrollOn: true,
       showReviewsForm: false,
-      reviewsArr: [], 
+      reviewsArr: JSON.parse(localStorage.getItem('reviewsArr')), 
        
   }; 
   addNewReview = (treview) =>{
-    
+    axios.post('https://63708fe208218c267e017d80.mockapi.io/ArrDima', treview)
+     
+    .catch((err)=>{
+      console.log(err)
+    })
 
     const temp = [...this.state.reviewsArr]
     temp.push(treview)
@@ -70,13 +74,15 @@ export class Reviews extends Component {
   
 render( ){
    
-  
+  if (this.state.reviewsArr.length === 0)
+    return <h2 className = 'zagruzka'>Загрузка данных...</h2>
+  else
   return (
       
       <>  
      <div className='Reviews'> 
       <div className='btnReviewsBlock'>  
-      <h2 className='h31'> Оставьте отзыв и мы сделаем вам скидку</h2>  <button className='btn' onClick={ this.showShowReviewsForm }>Оставить отзыв</button>
+ <button className='button' onClick={ this.showShowReviewsForm }>Оставить отзыв</button>
            </div>
    
           

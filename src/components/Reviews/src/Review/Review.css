@@ -1,19 +1,16 @@
 .Review{
-    background-color: white;
+    background-color: grey;
     margin-bottom: 2%;
 }
 .StarIcon{
-    color: rgb(179, 101, 45);
+    color: rgb(0, 0, 0);
     padding-top: 5px;
 }
 .StarIconWhite{
-    color: rgb(230, 189, 160);
+    color: rgb(255, 255, 255);
     padding-top: 5px;
 }
-.h31{
-    font-family: 'Alegreya SC', serif;
-   
-}
+ 
 .h3{
      
     color: rgb(157, 156, 156);

@@ -420,5 +420,6 @@ body {
 }
 .InfoIcon{
   position: relative;
-  left: 45%
+  left: 45%; 
+  cursor: pointer;
 }
