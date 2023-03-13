@@ -105,16 +105,23 @@ export const Main = () =>{
     }
     const deleteFromCart = (obj) =>{
       let copy = Object.assign([], cartArr);
+      let copy1 = Object.assign([], pricesArr);
+      
+       
       for (let i =0; i<copy.length; i++){
         if (copy[i] == obj){
-          delete copy[i] 
+         
+          
+          copy.splice(i, 1)
+          copy1.splice(i, 1)
           break
         }
       }
-
-      
+      console.log(copy1, copy)
+      setPricesArr(copy1)
       setCartArr(copy)
       localStorage.setItem('cartArr', copy)
+      localStorage.setItem('pricesArr', copy1)
     }
 
     const getProcessors = () =>{

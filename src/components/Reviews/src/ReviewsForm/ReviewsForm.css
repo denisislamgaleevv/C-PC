@@ -16,7 +16,8 @@
 .mainReviewsForm{
     border-radius: 5px;
     z-index: 3;
-    background-color:  grey;
+    background-color: rgb(95, 95, 95);
+   
     font-family: 'Alegreya SC', serif;
     width: 70%;
     height: 85%;
@@ -66,7 +67,8 @@
     width: 5px;
 }
 .inputReviews{
-  
+  background-color: grey;
+  color: white;
   height: 400px;
   width: 94%;
   padding: 10px 30px;
@@ -75,12 +77,13 @@
 }
 
 .StarIconWhite1{
-    color: rgb(255, 255, 255);
+    color: rgb(137, 137, 137);
+  
     cursor: pointer;
  
 }
 .StarIcon1{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     cursor: pointer;
 }
  

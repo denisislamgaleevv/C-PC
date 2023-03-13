@@ -8,7 +8,7 @@ export class Reviews extends Component {
   state = {
       scrollOn: true,
       showReviewsForm: false,
-      reviewsArr: JSON.parse(localStorage.getItem('reviewsArr')), 
+      reviewsArr: [JSON.parse(localStorage.getItem('reviewsArr'))], 
        
   }; 
   addNewReview = (treview) =>{
@@ -61,7 +61,7 @@ export class Reviews extends Component {
          reviewsArr: json
          
       })
-      
+     
     })
     .catch((err)=>{
         console.warn(err);
@@ -78,8 +78,9 @@ render( ){
     return <h2 className = 'zagruzka'>Загрузка данных...</h2>
   else
   return (
-      
-      <>  
+     
+      <> 
+       
      <div className='Reviews'> 
       <div className='btnReviewsBlock'>  
  <button className='button' onClick={ this.showShowReviewsForm }>Оставить отзыв</button>

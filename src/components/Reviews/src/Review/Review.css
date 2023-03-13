@@ -1,13 +1,15 @@
 .Review{
-    background-color: grey;
+    background-color: rgb(73, 73, 73);
     margin-bottom: 2%;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 .StarIcon{
     color: rgb(0, 0, 0);
     padding-top: 5px;
 }
 .StarIconWhite{
-    color: rgb(255, 255, 255);
+    color: rgb(95, 95, 95);
     padding-top: 5px;
 }
  
