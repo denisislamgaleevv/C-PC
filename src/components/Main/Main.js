@@ -29,7 +29,7 @@ export const Main = () =>{
     })
     })
     const b1Click = () =>{
-        setProcessorsV(!processorsV)//
+        setProcessorsV(true)//
         setMotherBoardsV(false)
         setRAMV(false)
         setVideoCardsV(false)
@@ -39,7 +39,7 @@ export const Main = () =>{
     }
     const b2Click = () =>{
         setProcessorsV(false)
-        setMotherBoardsV(!motherBoardsV)//
+        setMotherBoardsV(true)//
         setRAMV(false)
         setVideoCardsV(false)
         setSSDV(false)
@@ -49,7 +49,7 @@ export const Main = () =>{
     const b3Click = () =>{
         setProcessorsV(false)
         setMotherBoardsV(false)
-        setRAMV(!RAMV)//
+        setRAMV(true)//
         setVideoCardsV(false)
         setSSDV(false)
         setHDDV(false)
@@ -59,7 +59,7 @@ export const Main = () =>{
         setProcessorsV(false)
         setMotherBoardsV(false)
         setRAMV(false)
-        setVideoCardsV(!videoCardsV)//
+        setVideoCardsV(true)//
         setSSDV(false)
         setHDDV(false)
         setPowerUnitsV(false)
@@ -69,7 +69,7 @@ export const Main = () =>{
         setMotherBoardsV(false)
         setRAMV(false)
         setVideoCardsV(false)
-        setSSDV(!SSDV)//
+        setSSDV(true)//
         setHDDV(false)
         setPowerUnitsV(false)
     }
@@ -79,7 +79,7 @@ export const Main = () =>{
         setRAMV(false)
         setVideoCardsV(false)
         setSSDV(false)
-        setHDDV(!HDDV)//
+        setHDDV(true)//
         setPowerUnitsV(false)
     }
     const b7Click = () =>{
@@ -89,7 +89,7 @@ export const Main = () =>{
         setVideoCardsV(false)
         setSSDV(false)
         setHDDV(false)
-        setPowerUnitsV(!powerUnitsV)//
+        setPowerUnitsV(true)//
     }
     const addToCart =(name , price) =>{
       let copy1 = Object.assign([], pricesArr);
@@ -241,6 +241,7 @@ export const Main = () =>{
       
       return(temp)
     }
+     
     const getPowerUnits = () =>{
       let  temp = []
       for (let i = 0; i< hardwareArr.power_units.length; i++){
@@ -256,6 +257,39 @@ export const Main = () =>{
         temp[i].photo =  hardwareArr.power_units[i].photo
         temp[i].description =  hardwareArr.power_units[i].description
         temp[i].characteristics =  hardwareArr.power_units[i].characteristics
+      } 
+      
+      return(temp)
+    }
+    const getHardware = () =>{
+      let  temp = []
+      for (let i = 0; i< hardwareArr.processors.length; i++){
+        temp.push({ 
+          name :  '',
+          price : 0, 
+          photo : ''
+        })
+      }
+       for (let i = 0; i< hardwareArr.processors.length; i++){
+        temp[i].name =  hardwareArr.HDD[i].name; 
+        temp[i].price =  hardwareArr.HDD[i].price  
+        temp[i].photo =  hardwareArr.HDD[i].photo
+        temp[i].description =  hardwareArr.HDD[i].description
+        temp[i].characteristics =  hardwareArr.HDD[i].characteristics
+      } 
+      for (let i = 0; i< hardwareArr.motherboards.length; i++){
+        temp.push({ 
+          name :  '',
+          price : 0, 
+          photo : ''
+        })
+      }
+       for (let i = 0; i< hardwareArr.motherboards.length; i++){
+        temp[i].name =  hardwareArr.HDD[i].name; 
+        temp[i].price =  hardwareArr.HDD[i].price  
+        temp[i].photo =  hardwareArr.HDD[i].photo
+        temp[i].description =  hardwareArr.HDD[i].description
+        temp[i].characteristics =  hardwareArr.HDD[i].characteristics
       } 
       
       return(temp)
@@ -289,13 +323,13 @@ export const Main = () =>{
     }
     return(
         <>
-       
      
 	<div class="container">
   
-    
+   
      
 		<div class="left">
+      
 			<button class="button" onClick={b1Click}>Процессоры</button>
 			<button class="button" onClick={b2Click}>Материнские платы</button>
 			<button class="button" onClick={b3Click}>Оперативная память</button>
@@ -307,6 +341,7 @@ export const Main = () =>{
     
      
 		<div class="right">
+      
     {  infoVisibility?  
                 <DialogWindow  
                  text = {currentElem.name} 
@@ -317,32 +352,23 @@ export const Main = () =>{
                   hideDialogWindow = {hideDialogWindow}
                    /> : <></>
       }
+       {processorsV ?   
 <Slider {...settings}> 
- 
-              {processorsV ?   
-              
+              {processorsV ?      
            getProcessors().map((obj) =>    
-           
-            
-           <div  className="content">
-              
+           <div  className="content">  
             <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
-           
            <img src={obj.photo}   class="image"/>
-        {
-           <> 
+        {<> 
            <p>{obj.name} </p>
            <p>{obj.price}$ </p>
-           </>  
-        }
-        
+           </> }
  <button class="purchase-button" onClick={()=>addToCart(obj.name, obj.price)}>Добавить в корзину</button>
- 
- 
-			</div>    )  : <></>}    </Slider>
-     
-            {motherBoardsV ?      getMotherboards().map((obj) =>    
-            <div  class="content hide">
+			</div>    )  : <></>}    </Slider> : <></>}
+      {motherBoardsV ? <Slider {...settings}> 
+            {motherBoardsV ?     
+             getMotherboards().map((obj) =>    
+            <div  class="content">
                   <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
             <img src={obj.photo}   class="image"/>
         {
@@ -352,9 +378,10 @@ export const Main = () =>{
              </>  
         }
 			 <button class="purchase-button" onClick={()=>addToCart(obj.name, obj.price)}>Добавить в корзину</button>
-			</div>)  : <></>} 
+			</div>  )  : <></>}    </Slider> : <></>}
+      {RAMV ?<Slider {...settings}> 
             {RAMV ? 	   getRAM().map((obj) =>    
-            <div  class="content hide">
+            <div  class="content">
                  <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
 				<img src={obj.photo}   class="image"/>
         {
@@ -364,9 +391,10 @@ export const Main = () =>{
              </>  
         }
 				 <button class="purchase-button" onClick={()=>addToCart(obj.name, obj.price)}>Добавить в корзину</button>
-			</div>): <></>} 
+			</div>)  : <></>}    </Slider> : <></>}
+      {videoCardsV ? <Slider {...settings}>
             {videoCardsV ?    getVideoCards().map((obj) =>    
-           <div  class="content hide">
+           <div  class="content">
                <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
            <img src={obj.photo}   class="image"/>
         {
@@ -376,9 +404,10 @@ export const Main = () =>{
              </>  
         }
 		 <button class="purchase-button" onClick={()=>addToCart(obj.name, obj.price)}>Добавить в корзину</button>
-      </div>): <></>} 
+      </div>)  : <></>}    </Slider> : <></>}
+      {SSDV ?<Slider {...settings}>
             {SSDV ?    getSSD().map((obj) =>    
-      <div  class="content hide">
+      <div  class="content">
             <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
       <img src={obj.photo}   class="image"/>
         {
@@ -388,9 +417,10 @@ export const Main = () =>{
             </>  
         }
        <button class="purchase-button" onClick={()=>addToCart(obj.name, obj.price)}>Добавить в корзину</button>
-      </div>): <></>} 
+      </div>)  : <></>}    </Slider> : <></>}
+      {HDDV ? <Slider {...settings}> 
             {HDDV ?      getHDD().map((obj) =>    
-             <div  class="content hide">
+             <div  class="content">
                    <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
              <img src={obj.photo}   class="image"/>
         {
@@ -400,9 +430,10 @@ export const Main = () =>{
             </>  
         }
   <button class="purchase-button" onClick={()=>addToCart(obj.name, obj.price)}>Добавить в корзину</button>
-      </div>): <></>} 
+      </div>)  : <></>}    </Slider> : <></>}
+      {powerUnitsV ? <Slider {...settings}> 
             {powerUnitsV ?    getPowerUnits().map((obj) =>    
-            <div  class="content hide">
+            <div  class="content">
                  <InfoIcon className = 'InfoIcon' onClick = {()=>handleInfoIconClick(obj)} /> 
             <img src={obj.photo}   class="image"/>
         {
@@ -412,8 +443,11 @@ export const Main = () =>{
           </>  
         }
     <button class="purchase-button" onClick={()=>addToCart(obj.name, obj.price)}>Добавить в корзину</button>
-      </div>): <></>}   
+      </div>)  : <></>}    </Slider> : <></>}  
+      
+      
     </div>
+    
   </div>
   
   <div class="cart">

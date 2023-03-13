@@ -30,10 +30,7 @@ export const DialogWindow = ({ hideDialogWindow, text, photo, price, description
            <span className='closeIcon'  onClick={hideDialogWindow} >   <CloseIcon/>  </span>
            
             </div>
-            <div className='probel1'>
-            &nbsp; 
             
-            </div>
           <div className='textLearnMoreFormHeader'>
             
              <h2>  {text} - <span> {price}$ </span> </h2>  
