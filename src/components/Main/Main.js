@@ -3,6 +3,7 @@ import {React, useState, useEffect, useCallback } from 'react'
 import {comps} from './comps.js'
 import InfoIcon from '@mui/icons-material/Info';
 import { DialogWindow } from './DialogWindow/DialogWindow';
+import  comp from './images/comp.png'  
 import Slider from "react-slick";
 export const Main = () =>{
     
@@ -452,20 +453,30 @@ export const Main = () =>{
   
   <div class="cart">
     <h2>Корзина</h2>
-    <ul id="cart-list">
+    <ul >
        {
         cartArr.map((obj) =>  <p> {obj }$ &nbsp; 
         <a className='cross' onClick = {() => deleteFromCart(obj)}>  &#10006; </a>
         </p>)
        } 
        
-        <span> Итого: </span> {Math.round(getSum())}<span>$ </span>
+        <span> Итого: </span> {Math.round(getSum())}<span>$</span><br/> 
+        <button className='button'>Купить </button>
     </ul>
      
   </div>
+  
   
 </> 
     )
 }
 
- 
+ /*
+  <div class="progress">
+    <h2>Прогресс сборки</h2>
+    <ul >
+      <img src = {comp} className={'compImage'}/>
+    </ul>
+     
+  </div>
+ */

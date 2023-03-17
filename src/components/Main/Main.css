@@ -37,14 +37,6 @@
   font-weight: bold;
   }
   
-  .cart {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  }
   
   .cart h2 {
   margin-top: 0;
@@ -219,14 +211,42 @@
   }
   
   .cart {
+    
+  position: relative;
+  display: inline-block;
   max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: white;
+  width: 98%;
+  left: 1%;
+ 
+  max-width: 1200px;
+  padding: 20px auto;
+  background-color:#333;
+  
   border-radius: 5px;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+
+  margin: 20px auto;
+  padding: 20px;
+   
+
   }
   
+  .progress {
+    position: relative;
+    display: inline-block;
+  max-width: 1200px;
+  
+ 
+  max-width: 1200px;
+  padding: 20px auto;
+  background-color:#333;
+  
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+
+  margin: 20px auto;
+  padding: 20px;
+    }
   .cart h2 {
   margin-top: 0;
   }
@@ -407,15 +427,7 @@
   }
   
   /* Add transition for cart background color */
-  .cart {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #444;
-  border-radius: 5px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.5s ease-in-out;
-  }
+  
   
   /* Darken content background color */
   
@@ -425,4 +437,8 @@
   position: relative;
   left: 45%;
   cursor: pointer;
+  }
+
+  .compImage{
+    width: 54.4%
   }
